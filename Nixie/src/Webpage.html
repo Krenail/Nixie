@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <style>
+    html {
+      font-family: Helvetica;
+      display: inline-block;
+      margin: 0px auto;
+      text-align: center;
+    }
+
+    body {
+      padding: 25px;
+      background-color: black;
+      color: white;
+      font-size: 25px;
+    }
+
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+
+    .light-mode {
+      background-color: white;
+      color: black;
+    }
+
+    h2 {
+      font-size: 2.0rem;
+    }
+
+    p {
+      font-size: 2.0rem;
+    }
+
+    .units {
+      font-size: 1.5rem;
+    }
+
+    .dht-labels {
+      font-size: 1.5rem;
+      vertical-align: middle;
+      padding-bottom: 15px;
+    }
+
+    .input-forms {
+      font-size: 1rem;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Nixie Web Server</h2>
+  <p>
+    <button onclick="darkMode()">Dark Mode</button>
+    <button onclick="lightMode()">Light Mode</button>
+  </p>
+  <p>
+    <i class="fas fa-clock" style="color:#078d4a;"></i>
+    <span class="dht-labels">Ora:</span>
+    <span id="time">%TIME%</span>
+  </p>
+  <p>
+    <i class="fas fa-calendar-alt" style="color:#fa9107;"></i>
+    <span class="dht-labels">Data:</span>
+    <span id="date">%DATE%</span>
+  </p>
+  <p>
+    <i class="fas fa-thermometer-half" style="color:#eb2124;"></i>
+    <span class="dht-labels">Temperatura:</span>
+    <span id="temperature">%TEMPERATURE%</span>
+    <span class="units">&deg;C</span>
+  </p>
+  <p>
+    <i class="fas fa-tint" style="color:#00add6;"></i>
+    <span class="dht-labels">Umidit&agrave;:</span>
+    <span id="humidity">%HUMIDITY%</span>
+    <span class="units">&#37;</span>
+  </p>
+  <form action="/get" target="hidden-form">
+    <p>
+      <i class="fas fa-moon" style="color:#555555;"></i>
+      <span class="dht-labels">Modalit&agrave; notte:</span>
+      <span id="nightMode">%NIGHTMODE%</span>
+      <label class="dht-labels" for="nightMode">Modifica:</label>
+      <input class="input-forms" type="time" name="nightMode">
+      <input class="input-forms" type="submit" value="Salva" onclick="submitMessage()">
+    </p>
+  </form>
+  </p>
+  <form action="/get" target="hidden-form">
+    <p>
+      <i class="fas fa-sun" style="color:#fab005;"></i>
+      <span class="dht-labels">Modalit&agrave; giorno:</span>
+      <span id="dayMode">%DAYMODE%</span>
+      <label class="dht-labels" for="dayMode">Modifica:</label>
+      <input class="input-forms" type="time" name="dayMode">
+      <input class="input-forms" type="submit" value="Salva" onclick="submitMessage()">
+    </p>
+  </form>
+  <iframe style="display:none" name="hidden-form"></iframe>
+</body>
+
+<script>
+  setInterval(function () {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("temperature").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "/temperature", true);
+    xhttp.send();
+  }, 10000);
+
+  setInterval(function () {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("humidity").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "/humidity", true);
+    xhttp.send();
+  }, 10000);
+
+  setInterval(function () {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("time").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "/time", true);
+    xhttp.send();
+  }, 1000);
+
+  setInterval(function () {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("date").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "/date", true);
+    xhttp.send();
+  }, 10000);
+
+  function darkMode() {
+    var element = document.body;
+    var content = document.getElementById("DarkModetext");
+    element.className = "dark-mode";
+    content.innerText = "Dark Mode is ON";
+  }
+  function lightMode() {
+    var element = document.body;
+    var content = document.getElementById("DarkModetext");
+    element.className = "light-mode";
+    content.innerText = "Dark Mode is OFF";
+  }
+
+  function submitMessage() {
+    alert("Valore salvato!");
+    setTimeout(function () { document.location.reload(false); }, 500);
+  }
+</script>
+
+</html>

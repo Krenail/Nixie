@@ -1,0 +1,544 @@
+{
+  "uuid": "d2c81355d8c5609fd8a7755bcb7a519a",
+  "path": "Offline/Nixie",
+  "name": "Nixie",
+  "content": "",
+  "created_at": "2022-12-30 00:53:26",
+  "updated_at": "2023-01-04 14:38:21",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "a829f7623527a68c22b6c09e86a854cd",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "5c32356c0b484e7fb167ecbb0ff6902e": 1,
+        "dcbb7bf0bc0441c090baf45296d3b279": 4,
+        "65cbe7a1608343d2bf462a7680fb7efb": 2,
+        "388cc20a13c44f31a28028869a262f88": 2,
+        "bb009484ef804a24ac5d18c54b249586": 46,
+        "b04223feab904c9f96db1dc1e83657d1": 1,
+        "faa2c89ef44b4088b639bacf1c63ab9e": 8,
+        "e121d28526db42a1ab28c19b6da8c1fc": 5,
+        "98da1b96a5b547f2a86ee9c657c167b8": 3,
+        "08bb81d4785292e6ef4060d064db2f76": 3,
+        "55792152921e4dd39bca0a771a78f25e": 7
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "10uF",
+          3,
+          "CAP-TH_BD5.0-P2.00-D0.8-FD",
+          "C1,C2,C3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "CX(承兴)",
+            "BOM_Manufacturer Part": "GR106M050D11RR0VK2FP0",
+            "BOM_Supplier Part": "C78759",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "3744bcbe1f464b01ae180f32d7d4b0c4",
+            "uuid": "08bb81d4785292e6ef4060d064db2f76"
+          }
+        ],
+        [
+          "100nF",
+          7,
+          "CAP-TH_L7.2-W3.5-P5.00-D0.5",
+          "C4,C5,C6,C7,C8,C9,C10",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "ReliaPro",
+            "BOM_Manufacturer Part": "Calibration capacitor100nF（104）100V,5%",
+            "BOM_Supplier Part": "C26609",
+            "puuid": "b460d747c63a401193139db5d6031771",
+            "uuid": "55792152921e4dd39bca0a771a78f25e"
+          }
+        ],
+        [
+          "NIXIE1_1",
+          1,
+          "CONN-TH_B5B-XH-A-BK-LF-SN",
+          "CN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C157991",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B5B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "fd41eaaeb15c4ab89aab62c9d7764109",
+            "uuid": "faa2c89ef44b4088b639bacf1c63ab9e"
+          }
+        ],
+        [
+          "NIXIE1_2",
+          1,
+          "CONN-TH_B5B-XH-A-BK-LF-SN",
+          "CN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C157991",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B5B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "fd41eaaeb15c4ab89aab62c9d7764109",
+            "uuid": "faa2c89ef44b4088b639bacf1c63ab9e"
+          }
+        ],
+        [
+          "NIXIE2_1",
+          1,
+          "CONN-TH_B5B-XH-A-BK-LF-SN",
+          "CN3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C157991",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B5B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "fd41eaaeb15c4ab89aab62c9d7764109",
+            "uuid": "faa2c89ef44b4088b639bacf1c63ab9e"
+          }
+        ],
+        [
+          "NIXIE2_2",
+          1,
+          "CONN-TH_B5B-XH-A-BK-LF-SN",
+          "CN4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C157991",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B5B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "fd41eaaeb15c4ab89aab62c9d7764109",
+            "uuid": "faa2c89ef44b4088b639bacf1c63ab9e"
+          }
+        ],
+        [
+          "NIXIE3_1",
+          1,
+          "CONN-TH_B5B-XH-A-BK-LF-SN",
+          "CN5",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C157991",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B5B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "fd41eaaeb15c4ab89aab62c9d7764109",
+            "uuid": "faa2c89ef44b4088b639bacf1c63ab9e"
+          }
+        ],
+        [
+          "NIXIE3_2",
+          1,
+          "CONN-TH_B5B-XH-A-BK-LF-SN",
+          "CN6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C157991",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B5B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "fd41eaaeb15c4ab89aab62c9d7764109",
+            "uuid": "faa2c89ef44b4088b639bacf1c63ab9e"
+          }
+        ],
+        [
+          "NIXIE4_1",
+          1,
+          "CONN-TH_B5B-XH-A-BK-LF-SN",
+          "CN7",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C157991",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B5B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "fd41eaaeb15c4ab89aab62c9d7764109",
+            "uuid": "faa2c89ef44b4088b639bacf1c63ab9e"
+          }
+        ],
+        [
+          "NIXIE4_2",
+          1,
+          "CONN-TH_B5B-XH-A-BK-LF-SN",
+          "CN8",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C157991",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B5B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "fd41eaaeb15c4ab89aab62c9d7764109",
+            "uuid": "faa2c89ef44b4088b639bacf1c63ab9e"
+          }
+        ],
+        [
+          "ANODE1_2",
+          1,
+          "CONN-TH_B2B-XH-A-Y-LF-SN",
+          "CN9",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C158012",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B2B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "30e7f16af54c4f14a9a5df6ea358867d",
+            "uuid": "e121d28526db42a1ab28c19b6da8c1fc"
+          }
+        ],
+        [
+          "ANODE3_4",
+          1,
+          "CONN-TH_B2B-XH-A-Y-LF-SN",
+          "CN10",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C158012",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B2B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "30e7f16af54c4f14a9a5df6ea358867d",
+            "uuid": "e121d28526db42a1ab28c19b6da8c1fc"
+          }
+        ],
+        [
+          "COLONS",
+          1,
+          "CONN-TH_3P-P2.50_B3B-XH-AM-LF-SN",
+          "CN11",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C161870",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B3B-XH-AM(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "4979ac329f7f4641b5baee624db67bc4",
+            "uuid": "98da1b96a5b547f2a86ee9c657c167b8"
+          }
+        ],
+        [
+          "LED_OUT",
+          1,
+          "CONN-TH_3P-P2.50_B3B-XH-AM-LF-SN",
+          "CN12",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C161870",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B3B-XH-AM(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "4979ac329f7f4641b5baee624db67bc4",
+            "uuid": "98da1b96a5b547f2a86ee9c657c167b8"
+          }
+        ],
+        [
+          "PB",
+          1,
+          "CONN-TH_B2B-XH-A-Y-LF-SN",
+          "CN13",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C158012",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B2B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "30e7f16af54c4f14a9a5df6ea358867d",
+            "uuid": "e121d28526db42a1ab28c19b6da8c1fc"
+          }
+        ],
+        [
+          "5V_CAM",
+          1,
+          "CONN-TH_B2B-XH-A-Y-LF-SN",
+          "CN14",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C158012",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B2B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "30e7f16af54c4f14a9a5df6ea358867d",
+            "uuid": "e121d28526db42a1ab28c19b6da8c1fc"
+          }
+        ],
+        [
+          "HV_IN",
+          1,
+          "CONN-TH_3P-P2.50_B3B-XH-AM-LF-SN",
+          "CN15",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C161870",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B3B-XH-AM(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "4979ac329f7f4641b5baee624db67bc4",
+            "uuid": "98da1b96a5b547f2a86ee9c657c167b8"
+          }
+        ],
+        [
+          "5V_IN",
+          1,
+          "CONN-TH_B2B-XH-A-Y-LF-SN",
+          "CN16",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C158012",
+            "BOM_Manufacturer": "JST",
+            "BOM_Manufacturer Part": "B2B-XH-A(LF)(SN)",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "30e7f16af54c4f14a9a5df6ea358867d",
+            "uuid": "e121d28526db42a1ab28c19b6da8c1fc"
+          }
+        ],
+        [
+          "MPSA42",
+          2,
+          "TO-92-3_L4.8-W3.7-P2.60-L",
+          "Q1,Q2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "ST(先科)",
+            "BOM_Manufacturer Part": "MPSA42",
+            "BOM_Supplier Part": "C118557",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "e3f2c944b29d4a37b36284a7c4d386d2",
+            "uuid": "388cc20a13c44f31a28028869a262f88"
+          }
+        ],
+        [
+          "1k2",
+          4,
+          "RES-TH_BD2.4-L6.3-P10.30-D0.6",
+          "R0_1,R0_2,R0_3,R0_4",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Manufacturer": "",
+            "puuid": "2915f1f0a54941d7b912decfe617b47f",
+            "uuid": "bb009484ef804a24ac5d18c54b249586"
+          }
+        ],
+        [
+          "4k7",
+          10,
+          "RES-TH_BD2.4-L6.3-P10.30-D0.6",
+          "R1_1,R1_2,R1_3,R1_4,R9_1,R9_2,R9_3,R9_4,RD,RSW",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Manufacturer": "",
+            "puuid": "2915f1f0a54941d7b912decfe617b47f",
+            "uuid": "bb009484ef804a24ac5d18c54b249586"
+          }
+        ],
+        [
+          "1k1",
+          12,
+          "RES-TH_BD2.4-L6.3-P10.30-D0.6",
+          "R2_1,R2_2,R2_3,R2_4,R5_1,R5_2,R5_3,R5_4,R6_1,R6_2,R6_3,R6_4",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Manufacturer": "",
+            "puuid": "2915f1f0a54941d7b912decfe617b47f",
+            "uuid": "bb009484ef804a24ac5d18c54b249586"
+          }
+        ],
+        [
+          "1k5",
+          4,
+          "RES-TH_BD2.4-L6.3-P10.30-D0.6",
+          "R3_1,R3_2,R3_3,R3_4",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Manufacturer": "",
+            "puuid": "2915f1f0a54941d7b912decfe617b47f",
+            "uuid": "bb009484ef804a24ac5d18c54b249586"
+          }
+        ],
+        [
+          "3k3",
+          4,
+          "RES-TH_BD2.4-L6.3-P10.30-D0.6",
+          "R4_1,R4_2,R4_3,R4_4",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Manufacturer": "",
+            "puuid": "2915f1f0a54941d7b912decfe617b47f",
+            "uuid": "bb009484ef804a24ac5d18c54b249586"
+          }
+        ],
+        [
+          "3k6",
+          4,
+          "RES-TH_BD2.4-L6.3-P10.30-D0.6",
+          "R7_1,R7_2,R7_3,R7_4",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Manufacturer": "",
+            "puuid": "2915f1f0a54941d7b912decfe617b47f",
+            "uuid": "bb009484ef804a24ac5d18c54b249586"
+          }
+        ],
+        [
+          "4k7",
+          4,
+          "RES-TH_BD3.3-L9.0-P13.00-D0.6",
+          "RA_1,RA_2,RA_3,RA_4",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Manufacturer": "",
+            "puuid": "987b1ed46f1743c9a1f55a2893a33c05",
+            "uuid": "bb009484ef804a24ac5d18c54b249586"
+          }
+        ],
+        [
+          "68k",
+          2,
+          "RES-TH_BD2.4-L6.3-P10.30-D0.6",
+          "RC_1,RC_2",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Manufacturer": "",
+            "puuid": "2915f1f0a54941d7b912decfe617b47f",
+            "uuid": "bb009484ef804a24ac5d18c54b249586"
+          }
+        ],
+        [
+          "1k",
+          2,
+          "RES-TH_BD2.4-L6.3-P10.30-D0.6",
+          "RC_3,RC_4",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Manufacturer": "",
+            "puuid": "2915f1f0a54941d7b912decfe617b47f",
+            "uuid": "bb009484ef804a24ac5d18c54b249586"
+          }
+        ],
+        [
+          "esp8266 nodemcu",
+          1,
+          "ESP8266NODEMCU 31X58",
+          "U1",
+          {
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "puuid": "a21d1685f8fe4f8db548fc1df1df6c45",
+            "uuid": "5c32356c0b484e7fb167ecbb0ff6902e"
+          }
+        ],
+        [
+          "K155ID1/SN74141",
+          4,
+          "DIP16",
+          "U2,U4,U5,U7",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "36387ea742a04602bc24d100c866268f",
+            "uuid": "dcbb7bf0bc0441c090baf45296d3b279"
+          }
+        ],
+        [
+          "SN74HC595N",
+          2,
+          "DIP-16_L19.8-W6.5-P2.54-LS7.6-BL",
+          "U3,U6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "TI(德州仪器)",
+            "BOM_Manufacturer Part": "SN74HC595N",
+            "BOM_Supplier Part": "C78711",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "1f423f14388b4b17afc87646625a53f6",
+            "uuid": "65cbe7a1608343d2bf462a7680fb7efb"
+          }
+        ],
+        [
+          "DHT22",
+          1,
+          "DHT22",
+          "U9",
+          {
+            "BOM_Manufacturer Part": "",
+            "puuid": "be54ac2f327f4be99a6ec6a82b50a680",
+            "uuid": "b04223feab904c9f96db1dc1e83657d1"
+          }
+        ]
+      ],
+      "updateTime": 1672836317,
+      "createTime": 1672358007,
+      "histories": [],
+      "created_at": "2022-12-30 00:53:27",
+      "updated_at": "2023-01-04 13:45:17"
+    },
+    {
+      "uuid": "269ecfb659ca59f57acb133e63d4d884",
+      "puuid": "d2c81355d8c5609fd8a7755bcb7a519a",
+      "title": "PCB_Nixie",
+      "filename": "PCB_Nixie.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "3744bcbe1f464b01ae180f32d7d4b0c4": 3,
+        "b460d747c63a401193139db5d6031771": 7,
+        "4979ac329f7f4641b5baee624db67bc4": 3,
+        "fd41eaaeb15c4ab89aab62c9d7764109": 8,
+        "30e7f16af54c4f14a9a5df6ea358867d": 5,
+        "2915f1f0a54941d7b912decfe617b47f": 42,
+        "36387ea742a04602bc24d100c866268f": 4,
+        "1f423f14388b4b17afc87646625a53f6": 2,
+        "be54ac2f327f4be99a6ec6a82b50a680": 1,
+        "a21d1685f8fe4f8db548fc1df1df6c45": 1,
+        "987b1ed46f1743c9a1f55a2893a33c05": 4,
+        "e3f2c944b29d4a37b36284a7c4d386d2": 2
+      },
+      "BOM": [],
+      "updateTime": 1672839501,
+      "createTime": 1672364681,
+      "histories": [],
+      "created_at": "2022-12-30 02:44:41",
+      "updated_at": "2023-01-04 14:38:21"
+    }
+  ],
+  "sort": [],
+  "title": "Nixie",
+  "foldername": "Nixie",
+  "schfilename": "Nixie.json",
+  "schfilemtime": 1672836317993
+}
