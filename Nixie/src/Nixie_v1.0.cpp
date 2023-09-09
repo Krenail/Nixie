@@ -14,6 +14,12 @@
 #include <Hash.h>                 // Used for retriving icons
 #include <LittleFS.h>             // Used to save variables in a file
 
+#include <TZ.h>                   // TimeZone library
+#include <coredecls.h>            // settimeofday_cb()
+#include <PolledTimeout.h>
+#include <time.h>                 // time() ctime()
+#include <sys/time.h>             // struct timeval
+
 // Set web server port number to 80
 AsyncWebServer server(80);
 
@@ -22,6 +28,7 @@ const char index_html[] PROGMEM = R"rawliteral(
 <html>
 
 <head>
+  <title>Nixie Clock</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -31,6 +38,10 @@ const char index_html[] PROGMEM = R"rawliteral(
       display: inline-block;
       margin: 0px auto;
       text-align: center;
+    }
+
+    button {
+      font-family: Helvetica;
     }
 
     body {
@@ -69,6 +80,7 @@ const char index_html[] PROGMEM = R"rawliteral(
     }
 
     .input-forms {
+      font-family: Helvetica;
       font-size: 1rem;
       vertical-align: middle;
     }
@@ -108,6 +120,7 @@ const char index_html[] PROGMEM = R"rawliteral(
       <i class="fas fa-moon" style="color:#555555;"></i>
       <span class="dht-labels">Modalit&agrave; notte:</span>
       <span id="nightMode">%NIGHTMODE%</span>
+      <br>
       <label class="dht-labels" for="nightMode">Modifica:</label>
       <input class="input-forms" type="time" name="nightMode">
       <input class="input-forms" type="submit" value="Salva" onclick="submitMessage()">
@@ -119,6 +132,7 @@ const char index_html[] PROGMEM = R"rawliteral(
       <i class="fas fa-sun" style="color:#fab005;"></i>
       <span class="dht-labels">Modalit&agrave; giorno:</span>
       <span id="dayMode">%DAYMODE%</span>
+      <br>
       <label class="dht-labels" for="dayMode">Modifica:</label>
       <input class="input-forms" type="time" name="dayMode">
       <input class="input-forms" type="submit" value="Salva" onclick="submitMessage()">
@@ -199,11 +213,25 @@ const char *PARAM_DAY_MODE = "dayMode";
 
 IPAddress ip; // Define IP Address Class
 
+/*
 WiFiUDP ntpUDP; // Define UDP client
 
 int GMTOffset = 3600;                                                              // Offset in seconds to adjust for the timezone
 int NTPUpdateInterval = 60000;                                                     // Update interval in milliseconds of the NTP client
 NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", GMTOffset, NTPUpdateInterval); // Define NTP client
+*/
+
+// This line is necessary, not sure what it does
+extern "C" int clock_gettime(clockid_t unused, struct timespec *tp);
+
+// An object which can store a time
+static time_t now;
+
+// This uses the PolledTimeout library to allow an action to be performed every 20 seconds
+static esp8266::polledTimeout::periodicMs getTimeNow(1000);
+
+// define the correct timezone
+#define MYTZ TZ_Europe_Rome
 
 // Variables to store the current time received by the NTP Server
 int currentHour;
@@ -214,6 +242,14 @@ int currentDay;
 int currentMonth;
 int currentYear;
 String formattedDate;
+
+// Time Strings to beautify the webpage
+String currentHourStr;
+String currentMinuteStr;
+String currentSecondsStr;
+String currentDayStr;
+String currentMonthStr;
+String currentYearStr;
 
 // Declare Shift Registers
 int dataPin = D5;
@@ -316,9 +352,6 @@ uint32_t currentMillis;
 uint32_t prevGetDHT = 0;
 uint32_t getDHTDelay; // Minimum delay permitted between reading of the DHT22 sensor
 
-uint32_t prevGetTime = 0;
-const uint32_t getTimeDelay = 1000; // Delay used to update the time information in the variables from the NTP client (This is not the delay between NTP requests, that is definied by the NTPUpdateInterval variable)
-
 uint32_t prevTimeMode = 0;
 uint32_t prevNightMode = 0;
 const uint32_t timeModeDelay = 1000; // Delay used in timeMode and in nightMode to update the clock digits only once a second
@@ -410,7 +443,8 @@ void setup()
   getDHT(1);  // Get TH info and print to console
   delay(500);
 
-  timeClient.begin(); // Initialize NTPClient to get time
+  // This is where your time zone is set
+  configTime(MYTZ, "pool.ntp.org");
   getTime(1);         // Get time info and print to console
   delay(500);
 
@@ -706,37 +740,67 @@ void notFound(AsyncWebServerRequest *request)
 // Function to update the time and save the received values from the NTP server into the variables
 void getTime(bool test)
 {
+  // Updates the 'now' variable to the current time value
+  now = time(nullptr);
+
   // Delay between updates from the system time
-  if (currentMillis - prevGetTime >= getTimeDelay || test == 1)
+  if (getTimeNow == 1 || test == 1)
   {
-    prevGetTime = currentMillis;
-    timeClient.update(); // Update the time from the NTP Server
-
-    // Get the UNIX epochTime (needed for conversions later)
-    time_t epochTime = timeClient.getEpochTime();
-    // Serial.print("Epoch Time: ");
-    // Serial.println(epochTime);
-
-    // Get a time structure (needed for conversions later)
-    struct tm *ptm = gmtime((time_t *)&epochTime);
-
     // Get the Hour value
-    currentHour = timeClient.getHours();
+    currentHour = localtime(&now)->tm_hour;
+    if (currentHour < 10) {
+      currentHourStr = '0' + String(currentHour);
+    }
+    else {
+      currentHourStr = String(currentHour);
+    }
+
     // Get the Minute value
-    currentMinute = timeClient.getMinutes();
+    currentMinute = localtime(&now)->tm_min;
+    if (currentMinute < 10) {
+      currentMinuteStr = '0' + String(currentMinute);
+    }
+    else {
+      currentMinuteStr = String(currentMinute);
+    }
+    
     // Get the Seconds value (can be viewed only in serial comms)
-    currentSeconds = timeClient.getSeconds();
+    currentSeconds = localtime(&now)->tm_sec;
+    if (currentSeconds < 10) {
+      currentSecondsStr = '0' + String(currentSeconds);
+    }
+    else {
+      currentSecondsStr = String(currentSeconds);
+    }
+    
     // Get the formatted time for the web page
-    formattedTime = timeClient.getFormattedTime();
+    
+    formattedTime = currentHourStr + ':' + currentMinuteStr + ':' + currentSecondsStr;
 
     // Get the current Day
-    currentDay = ptm->tm_mday;
+    currentDay = localtime(&now)->tm_mday;
+    if (currentDay < 10) {
+      currentDayStr = '0' + String(currentDay);
+    }
+    else {
+      currentDayStr = String(currentDay);
+    }
+    
     // Get the current Month
-    currentMonth = ptm->tm_mon + 1;
+    currentMonth = localtime(&now)->tm_mon + 1;
+    if (currentMonth < 10) {
+      currentMonthStr = '0' + String(currentMonth);
+    }
+    else {
+      currentMonthStr = String(currentMonth);
+    }
+    
     // Get the current Year
-    currentYear = ptm->tm_year + 1900;
+    currentYear = localtime(&now)->tm_year + 1900;
+    currentYearStr = String(currentYear);
+
     // Get the formatted date for the web page
-    formattedDate = String(currentDay) + '/' + String(currentMonth) + '/' + String(currentYear);
+    formattedDate = currentDayStr + '/' + currentMonthStr + '/' + currentYearStr;
 
     // Print to console
     if (debugLevel > 1 || test == 1)
